@@ -25,6 +25,8 @@ export default {
     background-image: url('~/assets/bbes_index.jpg')
     background-size: cover
     background-repeat: no-repeat
+    background-position: center
+    transition: all .25s ease-in
 
     &::after
       content: ' '

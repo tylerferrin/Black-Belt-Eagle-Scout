@@ -1,23 +1,20 @@
 <template>
   <section class="navigation">
     <div class="navigation__wrapper">
-      <h1 class="navigation__title">BLACK BELT <span>EAGLE SCOUT</span></h1>
-      <div class="navigation__link-list">
-        <ul>
-          <li>LIVE</li>
-          <li>MUSIC</li>
-          <li>VIDEO</li>
-          <li>BIOGRAPHY</li>
-          <li>STORE</li>
-          <li>CONTACT</li>
-        </ul>
-      </div>
+      <h1 class="navigation__title">BLACK BELT EAGLE SCOUT</h1>
+      <NavList />
     </div>
   </section>
 </template>
 
 <script>
+import NavList from './NavList'
 
+export default {
+  components: {
+    NavList
+  }
+}
 </script>
 <style lang="sass">
   .navigation
@@ -37,25 +34,18 @@
     &__title
       margin: 0
       grid-column-start: 1
-      grid-column-end: 3
+      grid-column-end: 2
       color: black
-      letter-spacing: .5px
       font-family: "Helvetica", sans-serif
+      font-size: 2.5vw
+      letter-spacing: .5px
       padding: 24px 0 0 24px
+      transition: font-size .25s ease-in
+      @media screen and (max-width: 768px)
+        font-size: 24px
       span::before
         content: '\A'
         white-space: pre
-
-    &__link-list
-      grid-column-start: 8
-      padding: 24px 24px 0 0
-      ul
-        margin: 0
-        list-style-type: none
-        text-align: right
-        font-family: "Helvetica", sans-serif
-        letter-spacing: .5px
-        font-weight: 800
 
 
 </style>
