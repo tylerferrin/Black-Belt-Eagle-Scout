@@ -1,19 +1,29 @@
 <template>
   <section class="navigation">
     <div class="navigation__wrapper">
-      <h1 class="navigation__title">BLACK BELT EAGLE SCOUT</h1>
-      <NavList />
+      <nuxt-link to="/"
+        class="navigation__title">
+          BLACK BELT EAGLE SCOUT
+      </nuxt-link>
+      <NavList v-if="!this.isMobile"/>
+      <Burger v-if="this.isMobile"/>
     </div>
   </section>
 </template>
 
 <script>
 import NavList from './NavList'
+import Burger from './Burger'
+import { mapState } from 'vuex'
 
 export default {
   components: {
-    NavList
-  }
+    NavList,
+    Burger
+  },
+  computed: mapState([
+    'isMobile'
+  ])
 }
 </script>
 <style lang="sass">
@@ -36,9 +46,12 @@ export default {
       grid-column-start: 1
       grid-column-end: 2
       color: black
+      text-decoration: none
       font-family: "Helvetica", sans-serif
+      font-weight: 600
       font-size: 2.5vw
       letter-spacing: .5px
+      line-height: 1
       padding: 24px 0 0 24px
       transition: font-size .25s ease-in
       @media screen and (max-width: 768px)

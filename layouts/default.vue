@@ -9,6 +9,24 @@ import Navigation from '../components/Navigation'
 export default {
   components: {
     Navigation
+  },
+  beforeMount () {
+
+    this.getInnerWidth = () => window.innerWidth
+
+    this.setIsMobile = (val) => {
+      this.$store.commit('setIsMobile', val)
+    }
+
+    this.checkIfIsMobile = () => {
+      this.getInnerWidth() <= 768 ? this.setIsMobile(true) : this.setIsMobile(false)
+    }
+
+    this.checkIfIsMobile()
+
+    window.addEventListener('resize', () => {
+      this.checkIfIsMobile()
+    })
   }
 }
 </script>
@@ -35,7 +53,7 @@ export default {
       left: 0
       height: 100vh
       width: 100vw
-      background-color: #eaa087
+      background-color: #51914f
       opacity: .5
 
 </style>
