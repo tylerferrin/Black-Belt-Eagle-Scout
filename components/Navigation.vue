@@ -1,29 +1,80 @@
 <template>
-  <section class="navigation">
+  <section
+    class="navigation"
+    >
     <div class="navigation__wrapper">
       <nuxt-link to="/"
         class="navigation__title">
           BLACK BELT EAGLE SCOUT
       </nuxt-link>
-      <NavList v-if="!this.isMobile"/>
-      <Burger v-if="this.isMobile"/>
+      <transition
+        name="nav-fade"
+        mode="out-in"
+        appear
+      >
+        <NavList v-if="!isMobile" />
+        <Burger
+          v-if="isMobile && !isMobileListShowing"
+
+        />
+        <MobileNavList v-if="isMobileListShowing" />
+      </transition>
     </div>
   </section>
 </template>
 
 <script>
 import NavList from './NavList'
+import MobileNavList from './MobileNavList'
 import Burger from './Burger'
 import { mapState } from 'vuex'
 
 export default {
   components: {
     NavList,
+    MobileNavList,
     Burger
+  },
+  data () {
+    return {
+      isMobileListShowing: false,
+      showMobileList () {
+        console.log('Parent-listening')
+      }
+    }
   },
   computed: mapState([
     'isMobile'
-  ])
+  ]),
+
+  beforeMount () {
+    this.$root.$on(['show-mobile-list', 'closeMobileList'], () => {
+      this.isMobileListShowing = !this.isMobileListShowing
+    })
+  },
+
+  mounted () {
+    // create function to get current window width
+    this.getInnerWidth = () => window.innerWidth
+
+    // create function to add to resize listener
+    this.setIsMobile = (val) => {
+      this.$store.commit('setIsMobile', val)
+    }
+
+    // create function to set state value for isMobile
+    this.checkIfIsMobile = () => {
+      this.getInnerWidth() <= 768 ? this.setIsMobile(true) : this.setIsMobile(false)
+    }
+
+    // run function to set state - isMobile
+    this.checkIfIsMobile()
+
+    // add listener
+    window.addEventListener('resize', () => {
+      this.checkIfIsMobile()
+    })
+  }
 }
 </script>
 <style lang="sass">
@@ -42,6 +93,7 @@ export default {
       grid-template-columns: repeat(8, calc(100vw / 8))
       grid-template-rows: min-max(50px auto)
     &__title
+      display: block
       margin: 0
       grid-column-start: 1
       grid-column-end: 2
@@ -59,6 +111,18 @@ export default {
       span::before
         content: '\A'
         white-space: pre
+
+  // nav-fade transition
+  .nav-fade-enter,
+  .nav-fade-leave-to
+    opacity: 0
+
+  .nav-fade-enter-active,
+  .nav-fade-leave-active
+    transition: opacity .25s ease-in-out
+
+  .nav-fade-leave
+    opacity: 1
 
 
 </style>

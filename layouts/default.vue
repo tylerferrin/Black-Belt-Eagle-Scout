@@ -1,32 +1,17 @@
 <template>
   <div class="default-layout">
     <Navigation />
+
     <nuxt/>
+
   </div>
 </template>
 <script>
 import Navigation from '../components/Navigation'
+
 export default {
   components: {
     Navigation
-  },
-  beforeMount () {
-
-    this.getInnerWidth = () => window.innerWidth
-
-    this.setIsMobile = (val) => {
-      this.$store.commit('setIsMobile', val)
-    }
-
-    this.checkIfIsMobile = () => {
-      this.getInnerWidth() <= 768 ? this.setIsMobile(true) : this.setIsMobile(false)
-    }
-
-    this.checkIfIsMobile()
-
-    window.addEventListener('resize', () => {
-      this.checkIfIsMobile()
-    })
   }
 }
 </script>
@@ -44,7 +29,7 @@ export default {
     background-size: cover
     background-repeat: no-repeat
     background-position: center
-    transition: all .25s ease-in
+    transition: all .1s ease-in
 
     &::after
       content: ' '

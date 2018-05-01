@@ -1,6 +1,8 @@
 <template>
   <section class="burger">
-    <button class="burger__btn">
+    <button
+      @click="toggleMobileNav"
+      class="burger__btn" >
       <div class="burger__row burger__row--one"></div>
       <div class="burger__row burger__row--two"></div>
       <div class="burger__row burger__row--three"></div>
@@ -10,7 +12,11 @@
 </template>
 <script>
 export default {
-
+  methods: {
+    toggleMobileNav() {
+      this.$root.$emit('show-mobile-list')
+    }
+  }
 }
 </script>
 <style lang="sass">
@@ -22,6 +28,7 @@ export default {
     grid-column-end: 9
     padding: 24px 24px 0 0
     &__btn
+      display: block
       position: relative
       height: 20px
       width: 30px
@@ -32,7 +39,9 @@ export default {
       border-radius: none
       outline: none
       border: none
+      cursor: pointer
     &__row
+      display: block
       height: 3px
       width: 25px
       background-color: black

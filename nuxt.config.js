@@ -18,6 +18,12 @@ module.exports = {
   */
   loading: false,
   /*
+  ** router options
+  */
+  router: {
+    middleware: 'pages'
+  },
+  /*
   ** Build configuration
   */
   build: {
