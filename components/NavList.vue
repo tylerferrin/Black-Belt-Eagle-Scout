@@ -64,7 +64,9 @@ export default {
     grid-column-start: 7
     grid-column-end: 9
     padding: 24px 24px 0 0
+
     ul
+      right: 0
       margin: 0
       padding: 0
       list-style-type: none
@@ -73,9 +75,12 @@ export default {
       letter-spacing: .5px
       font-weight: 800
       li
+        line-height: 1
         display: block
         margin: 5px 0
         display: block
+        &:first-of-type
+          margin-top: 0
         a
           color: black
           text-decoration: none
