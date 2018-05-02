@@ -23,13 +23,18 @@ export const mutations = {
 
 export const actions = {
   async nuxtServerInit ({commit}) {
-  	return client.getEntries()
-  	.then( response => {
-  		let filteredResponse = _.map(response.items, item => Object.assign({}, item.fields, item.sys.contentType.sys))
 
-  		let shows = _.filter(filteredResponse, item => item.id === 'show')
+    try {
+      let response = await client.getEntries()
 
+      // once response has come in....
+      let filteredResponse = _.map(response.items, item => Object.assign({}, item.fields, item.sys.contentType.sys))
+      let shows = _.filter(filteredResponse, item => item.id === 'show')
       commit('setShows', shows)
-  	})
+
+    } catch(e) {
+      console.log(e)
+    }
+
   }
 }
