@@ -5,7 +5,7 @@
   >
     <ul>
       <li>
-        <nuxt-link to="/">
+        <nuxt-link to="/tour">
           Tour
         </nuxt-link>
       </li>
