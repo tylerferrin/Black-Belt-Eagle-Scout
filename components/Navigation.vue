@@ -12,12 +12,15 @@
         mode="out-in"
         appear
       >
-        <NavList v-if="!isMobile" />
+        <NavList
+          v-if="!isMobile"
+        />
         <Burger
           v-if="isMobile && !isMobileListShowing"
-
         />
-        <MobileNavList v-if="isMobileListShowing" />
+        <MobileNavList
+          v-if="isMobileListShowing"
+        />
       </transition>
     </div>
   </section>
@@ -38,9 +41,6 @@ export default {
   data () {
     return {
       isMobileListShowing: false,
-      showMobileList () {
-        console.log('Parent-listening')
-      }
     }
   },
   computed: mapState([
@@ -93,6 +93,7 @@ export default {
       grid-template-columns: repeat(8, calc(100vw / 8))
       grid-template-rows: min-max(50px auto)
     &__title
+      z-index: 1000
       display: block
       margin: 0
       grid-column-start: 1
@@ -121,8 +122,6 @@ export default {
   .nav-fade-leave-active
     transition: opacity .25s ease-in-out
 
-  .nav-fade-leave
-    opacity: 1
 
 
 </style>

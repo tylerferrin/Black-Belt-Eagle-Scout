@@ -21,6 +21,7 @@ export default {
   body
     margin: 0
     width: 100vw
+    overflow-x: hidden
   .index-view
     width: 100vw
     height: 100vh

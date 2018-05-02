@@ -40,6 +40,9 @@ export default {
       outline: none
       border: none
       cursor: pointer
+      transition: all .25s ease-in-out
+      &:active
+        transform: translate3d(0, 5px, 0)
     &__row
       display: block
       height: 3px

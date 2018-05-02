@@ -36,7 +36,7 @@
       </li>
       <button
         v-if="isMobile"
-        @click="closeMobileList"
+        @click="toggleIsEntering"
         class="mobile-closer"
       >
        X
@@ -47,14 +47,12 @@
 <script>
 import { mapState } from 'vuex'
 export default {
+  props: [
+    'toggleIsEntering'
+  ],
   computed: mapState([
     'isMobile'
-  ]),
-  methods: {
-    closeMobileList() {
-      this.$root.$emit('closeMobileList')
-    }
-  }
+  ])
 }
 
 </script>
@@ -104,4 +102,8 @@ export default {
     font-weight: 800
     letter-spacing: .5px
     cursor: pointer
+    padding-right: 0
+    transition: all .5s ease-in-out
+    &:active
+      transform: rotate(90deg)
 </style>
