@@ -28,6 +28,14 @@ export default {
     this.$root.$on('changeMobileNavClass', () => {
       this.isEntering = false
     })
+  },
+
+  watch: {
+    $route (to, from) {
+      if (to !== from) {
+        this.toggleIsEntering()
+      }
+    }
   }
 }
 </script>
@@ -40,12 +48,12 @@ export default {
     height: 100vh
     width: 100vw
     background-color: #51914f
-    opacity: .7
+    opacity: .9
     transition: all .25s ease-in-out
 
   .slideIn
     animation-name: slideIn
-    animation-duration: .5s
+    animation-duration: .25s
     animation-timing-function: ease-in-out
     animation-iteration-count: 1
     animation-direction: normal
@@ -53,7 +61,7 @@ export default {
 
   .slideOut
     animation-name: slideOut
-    animation-duration: .5s
+    animation-duration: .25s
     animation-timing-function: ease-in-out
     animation-iteration-count: 1
     animation-direction: normal

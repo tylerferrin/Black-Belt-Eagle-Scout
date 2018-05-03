@@ -29,7 +29,7 @@ export const actions = {
 
       // once response has come in....
       let filteredResponse = _.map(response.items, item => Object.assign({}, item.fields, item.sys.contentType.sys))
-      let shows = _.filter(filteredResponse, item => item.id === 'show')
+      let shows = _.orderBy(_.filter(filteredResponse, item => item.id === 'show'), 'date')
       commit('setShows', shows)
 
     } catch(e) {

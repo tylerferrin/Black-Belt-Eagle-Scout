@@ -27,6 +27,8 @@ export default {
     grid-column-start: 8
     grid-column-end: 9
     padding: 24px 24px 0 0
+    @media screen and (max-width: 768px)
+      padding: 8px 8px 0 0
     &__btn
       display: block
       position: relative

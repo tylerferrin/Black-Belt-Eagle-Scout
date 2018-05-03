@@ -19,9 +19,9 @@ export default {
 <style lang="sass">
   html,
   body
+    position: relative
     margin: 0
     width: 100vw
-    overflow-x: hidden
   .default-layout
     width: 100vw
     height: 100vh

@@ -10,29 +10,32 @@
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/">
+        <nuxt-link to="/music">
           Music
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/">
+        <nuxt-link to="/video">
           Video
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/">
+        <nuxt-link to="/biography">
           Biography
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/">
+        <nuxt-link to="/contact">
           Contact
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/">
+        <a
+          href="https://blackbelteaglescout.bandcamp.com/"
+          target="_blank"
+        >
           Store
-        </nuxt-link>
+        </a>
       </li>
       <button
         v-if="isMobile"

@@ -79,7 +79,7 @@ export default {
 </script>
 <style lang="sass">
   .navigation
-    position: absolute
+    position: fixed
     top: 0px
     left: 0
     z-index: 999
@@ -96,19 +96,22 @@ export default {
       z-index: 1000
       display: block
       margin: 0
+      position: fixed
+      width: 100px
       grid-column-start: 1
       grid-column-end: 2
       color: black
       text-decoration: none
       font-family: "Helvetica", sans-serif
       font-weight: 600
-      font-size: 2.5vw
+      font-size: 2vw
       letter-spacing: .5px
       line-height: 1
       padding: 24px 0 0 24px
       transition: font-size .25s ease-in
       @media screen and (max-width: 768px)
-        font-size: 24px
+        font-size: 16px
+        padding: 8px 0 0 8px
       span::before
         content: '\A'
         white-space: pre
