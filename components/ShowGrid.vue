@@ -91,7 +91,7 @@ export default {
     &__show-date
       display: block
       padding: 7.5px 0
-      color: #51914f
+      color: #eaa087
       font-weight: 800
       font-size: 1.5vw
       transition: all .25s ease-in-out
@@ -127,24 +127,24 @@ export default {
       margin-top: 15px
       align-self: end
       a
-        font-size: .9vw
+        width: 45%
+        outline: none
+        border-radius: 2.5px
+        border: 2px solid black
+        background-color: transparent
         color: black
+        text-align: center
         text-decoration: none
         line-height: 30px
-        text-align: center
-        width: 45%
-        background-color: transparent
-        outline: none
-        border: 2px solid black
-        border-radius: 0
+        font-size: .9vw
         height: 30px
         transition: all .25s ease-in-out
         cursor: pointer
         @media screen and (max-width: 1080px)
           font-size: 12px
         &:hover
-          border: 2px solid #51914f
-          background-color: #51914f
+          border: 2px solid #eaa087
+          background-color: #eaa087
           color: white
 
 

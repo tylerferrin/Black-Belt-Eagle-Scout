@@ -31,8 +31,7 @@ module.exports = {
   */
   router: {
     middleware: [
-      'pages',
-      'scrollUp'
+      'pages'
     ]
   },
   /*

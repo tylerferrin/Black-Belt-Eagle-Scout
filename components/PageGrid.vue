@@ -4,6 +4,7 @@
     <div class="page-grid__content-container">
       <div class="page-grid__content-grid">
         <ShowGrid v-if="contentId === 'Show' "/>
+        <AlbumGrid v-if="contentId === 'Album' " />
       </div>
       <RouteTitle :routeTitle="routeTitle" />
     </div>
@@ -11,6 +12,7 @@
 </template>
 <script>
 import ShowGrid from './ShowGrid'
+import AlbumGrid from './AlbumGrid'
 import RouteTitle from './RouteTitle'
 import scroller from 'vue-scrollto'
 
@@ -18,6 +20,7 @@ import scroller from 'vue-scrollto'
 export default {
   components: {
     ShowGrid,
+    AlbumGrid,
     RouteTitle
   },
 

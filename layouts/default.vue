@@ -42,7 +42,7 @@ export default {
       left: 0
       height: 100vh
       width: 100vw
-      background-color: #51914f
+      background-color: #eaa087
       opacity: .5
 
 </style>

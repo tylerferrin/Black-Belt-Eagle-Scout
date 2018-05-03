@@ -51,10 +51,7 @@ export default {
       scroller.scrollTo(element, {
         duration: 500,
         easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
-        offset: 0,
-        onDone: () => {
-          console.log('done')
-        }
+        offset: 0
       })
     }
   },
@@ -94,10 +91,12 @@ export default {
 
   watch: {
     $route (to, from) {
-      setTimeout(() => {
-        this.scrollDown('.page-grid__content-grid')
-      }, 250)
-      this.$store.commit('toggleScrollOnMount', false)
+      if (to.name !== 'index') {
+        setTimeout(() => {
+          this.scrollDown('.page-grid__content-grid')
+        }, 250)
+        this.$store.commit('toggleScrollOnMount', false)
+      }
     }
   }
 }
