@@ -6,6 +6,7 @@ const client = createClient()
 export const state = () => ({
   isMobile: null,
   page: null,
+  scrollOnMount: true,
   shows: []
 })
 
@@ -18,6 +19,9 @@ export const mutations = {
   },
   setShows (state, shows) {
     state.shows = shows
+  },
+  toggleScrollOnMount(state, scroll) {
+    state.scrollOnMount = scroll
   }
 }
 

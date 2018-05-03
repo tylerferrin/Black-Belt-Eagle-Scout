@@ -24,10 +24,30 @@ export default {
       }
     }
   },
+
+  methods: {
+    preventScroll() {
+      let body = document.querySelector('body')
+      body.style.overflow = 'hidden'
+    },
+    enableScroll() {
+      let body = document.querySelector('body')
+      body.style.overflow = 'visible'
+    }
+   },
+
   beforeMount () {
     this.$root.$on('changeMobileNavClass', () => {
       this.isEntering = false
     })
+    // prevent scrolling while nav is open
+    this.preventScroll()
+
+  },
+
+  beforeDestroy() {
+    // re-enable scrolling as nav closes
+    this.enableScroll()
   },
 
   watch: {

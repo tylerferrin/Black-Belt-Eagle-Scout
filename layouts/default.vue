@@ -1,9 +1,12 @@
 <template>
   <div class="default-layout">
-    <Navigation />
+    <div class="">
+      <Navigation />
+    </div>
+    <div class="">
+      <nuxt/>
 
-    <nuxt/>
-
+    </div>
   </div>
 </template>
 <script>

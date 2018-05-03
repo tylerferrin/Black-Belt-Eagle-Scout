@@ -69,13 +69,12 @@ export default {
     grid-column-gap: 3vw
     grid-row-gap: 3vw
     @media screen and (max-width: 1080px)
-      grid-template-columns: 1fr 1fr 1fr
+      grid-template-columns: 1fr 1fr
       grid-column-start: 3
       grid-column-end: 7
-    @media screen and (max-width: 960px)
-      grid-template-columns: 1fr 1fr
     @media screen and (max-width: 768px)
       grid-template-columns: 1fr
+      grid-row-gap: 30px
     &__show-item
       position: relative
       display: flex
@@ -97,7 +96,7 @@ export default {
       font-size: 1.5vw
       transition: all .25s ease-in-out
       @media screen and (max-width: 1080px)
-        font-size: 16px
+        font-size: 20px
     &__show-venue
       font-weight: 800
       text-transform: uppercase

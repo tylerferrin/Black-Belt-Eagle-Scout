@@ -7,6 +7,7 @@
 import PageGrid from '~/components/PageGrid'
 
 export default {
+  scrollToTop: true,
   components: {
     PageGrid
   },

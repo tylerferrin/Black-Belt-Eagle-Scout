@@ -30,7 +30,10 @@ module.exports = {
   ** router options
   */
   router: {
-    middleware: 'pages'
+    middleware: [
+      'pages',
+      'scrollUp'
+    ]
   },
   /*
   ** Build configuration

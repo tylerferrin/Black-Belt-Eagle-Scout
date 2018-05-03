@@ -30,6 +30,7 @@
 import NavList from './NavList'
 import MobileNavList from './MobileNavList'
 import Burger from './Burger'
+import scroller from 'vue-scrollto'
 import { mapState } from 'vuex'
 
 export default {
@@ -38,11 +39,26 @@ export default {
     MobileNavList,
     Burger
   },
+
   data () {
     return {
       isMobileListShowing: false,
     }
   },
+
+  methods: {
+    scrollDown (element) {
+      scroller.scrollTo(element, {
+        duration: 500,
+        easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
+        offset: 0,
+        onDone: () => {
+          console.log('done')
+        }
+      })
+    }
+  },
+
   computed: mapState([
     'isMobile'
   ]),
@@ -74,6 +90,15 @@ export default {
     window.addEventListener('resize', () => {
       this.checkIfIsMobile()
     })
+  },
+
+  watch: {
+    $route (to, from) {
+      setTimeout(() => {
+        this.scrollDown('.page-grid__content-grid')
+      }, 250)
+      this.$store.commit('toggleScrollOnMount', false)
+    }
   }
 }
 </script>
@@ -111,7 +136,7 @@ export default {
       transition: font-size .25s ease-in
       @media screen and (max-width: 768px)
         font-size: 16px
-        padding: 8px 0 0 8px
+        padding: 20px 0 0 20px
       span::before
         content: '\A'
         white-space: pre

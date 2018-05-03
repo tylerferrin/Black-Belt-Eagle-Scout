@@ -31,7 +31,7 @@ export default {
       list-style-type: none
       padding: 0 0 2vw 2vw
       @media screen and (max-width: 768px)
-        padding: 0 0 8px 8px
+        padding: 0 0 20px 20px
       li
         font-family: "Helvetica", sans-serif
         font-size: 24px

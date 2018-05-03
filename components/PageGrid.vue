@@ -35,7 +35,7 @@ export default {
     scrollDown (element) {
       scroller.scrollTo(element, {
         duration: 500,
-        easing: 'ease-in-out',
+        easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
         offset: 0,
         onDone: () => {
           console.log('done')
@@ -45,7 +45,9 @@ export default {
   },
 
   mounted () {
-    this.scrollDown('.page-grid__content-grid')
+    if (this.$store.state.scrollOnMount) {
+      this.scrollDown('.page-grid__content-container')
+    }
   }
 }
 </script>
