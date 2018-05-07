@@ -7,7 +7,8 @@ export const state = () => ({
   isMobile: null,
   page: null,
   scrollOnMount: true,
-  shows: []
+  shows: [],
+  albums: []
 })
 
 export const mutations = {
@@ -20,25 +21,27 @@ export const mutations = {
   setShows (state, shows) {
     state.shows = shows
   },
-  toggleScrollOnMount(state, scroll) {
+  toggleScrollOnMount (state, scroll) {
     state.scrollOnMount = scroll
+  },
+  setAlbums (state, albums) {
+    state.albums = albums
   }
 }
 
 export const actions = {
   async nuxtServerInit ({commit}) {
 
-    try {
       let response = await client.getEntries()
+        .catch(e => console.log(e))
 
       // once response has come in....
       let filteredResponse = _.map(response.items, item => Object.assign({}, item.fields, item.sys.contentType.sys))
+
       let shows = _.orderBy(_.filter(filteredResponse, item => item.id === 'show'), 'date')
+      let albums = _.filter(filteredResponse, item => item.id === 'album')
+
+      commit('setAlbums', albums)
       commit('setShows', shows)
-
-    } catch(e) {
-      console.log(e)
-    }
-
   }
 }
