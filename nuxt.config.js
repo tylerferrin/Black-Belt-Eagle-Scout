@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   /*
   ** Headers of the page
@@ -18,14 +20,26 @@ module.exports = {
   */
   loading: false,
   /*
+  ** Hook up env variables
+  */
+  env: {
+    spaceId: process.env.SPACE_ID,
+    accessToken: process.env.ACCESS_TOKEN
+  },
+  /*
   ** router options
   */
   router: {
-    middleware: 'pages'
+    middleware: [
+      'pages'
+    ]
   },
   /*
   ** Build configuration
   */
+  plugins: [
+    '~/plugins/contentful'
+  ],
   build: {
     /*
     ** Run ESLint on save

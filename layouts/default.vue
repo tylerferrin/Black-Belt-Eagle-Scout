@@ -1,9 +1,12 @@
 <template>
   <div class="default-layout">
-    <Navigation />
+    <div class="">
+      <Navigation />
+    </div>
+    <div class="">
+      <nuxt/>
 
-    <nuxt/>
-
+    </div>
   </div>
 </template>
 <script>
@@ -19,10 +22,11 @@ export default {
 <style lang="sass">
   html,
   body
+    position: relative
     margin: 0
-    width: 100vw
-  .index-view
-    width: 100vw
+    width: 100%
+  .default-layout
+    width: 100%
     height: 100vh
     position: relative
     background-image: url('~/assets/bbes_index.jpg')
@@ -37,8 +41,8 @@ export default {
       top: 0
       left: 0
       height: 100vh
-      width: 100vw
-      background-color: #51914f
+      width: 100%
+      background-color: #eaa087
       opacity: .5
 
 </style>

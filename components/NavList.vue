@@ -5,38 +5,43 @@
   >
     <ul>
       <li>
-        <nuxt-link to="/">
+        <nuxt-link to="/tour">
           Tour
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/">
+        <nuxt-link to="/music">
           Music
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/">
+        <nuxt-link
+          v-if="this.videos.length > 0"
+          to="/video">
           Video
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/">
+        <nuxt-link to="/biography">
           Biography
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/">
+        <nuxt-link to="/contact">
           Contact
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/">
+        <a
+          href="https://blackbelteaglescout.bandcamp.com/"
+          target="_blank"
+        >
           Store
-        </nuxt-link>
+        </a>
       </li>
       <button
         v-if="isMobile"
-        @click="closeMobileList"
+        @click="toggleIsEntering"
         class="mobile-closer"
       >
        X
@@ -47,14 +52,13 @@
 <script>
 import { mapState } from 'vuex'
 export default {
+  props: [
+    'toggleIsEntering'
+  ],
   computed: mapState([
-    'isMobile'
-  ]),
-  methods: {
-    closeMobileList() {
-      this.$root.$emit('closeMobileList')
-    }
-  }
+    'isMobile',
+    'videos'
+  ])
 }
 
 </script>
@@ -104,4 +108,8 @@ export default {
     font-weight: 800
     letter-spacing: .5px
     cursor: pointer
+    padding-right: 0
+    transition: all .5s ease-in-out
+    &:active
+      transform: rotate(90deg)
 </style>

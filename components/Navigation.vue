@@ -12,12 +12,15 @@
         mode="out-in"
         appear
       >
-        <NavList v-if="!isMobile" />
+        <NavList
+          v-if="!isMobile"
+        />
         <Burger
           v-if="isMobile && !isMobileListShowing"
-
         />
-        <MobileNavList v-if="isMobileListShowing" />
+        <MobileNavList
+          v-if="isMobileListShowing"
+        />
       </transition>
     </div>
   </section>
@@ -27,6 +30,7 @@
 import NavList from './NavList'
 import MobileNavList from './MobileNavList'
 import Burger from './Burger'
+import scroller from 'vue-scrollto'
 import { mapState } from 'vuex'
 
 export default {
@@ -35,14 +39,23 @@ export default {
     MobileNavList,
     Burger
   },
+
   data () {
     return {
       isMobileListShowing: false,
-      showMobileList () {
-        console.log('Parent-listening')
-      }
     }
   },
+
+  methods: {
+    scrollDown (element) {
+      scroller.scrollTo(element, {
+        duration: 500,
+        easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
+        offset: 0
+      })
+    }
+  },
+
   computed: mapState([
     'isMobile'
   ]),
@@ -74,16 +87,27 @@ export default {
     window.addEventListener('resize', () => {
       this.checkIfIsMobile()
     })
+  },
+
+  watch: {
+    $route (to, from) {
+      if (to.name !== 'index') {
+        setTimeout(() => {
+          this.scrollDown('.page-grid__content-grid')
+        }, 250)
+        this.$store.commit('toggleScrollOnMount', false)
+      }
+    }
   }
 }
 </script>
 <style lang="sass">
   .navigation
-    position: absolute
+    position: fixed
     top: 0px
     left: 0
     z-index: 999
-    width: 100vw
+    width: 100%
     height: 50px
     background-color: transparent
     &__wrapper
@@ -93,21 +117,25 @@ export default {
       grid-template-columns: repeat(8, calc(100vw / 8))
       grid-template-rows: min-max(50px auto)
     &__title
+      z-index: 1000
       display: block
       margin: 0
+      position: fixed
+      width: 100px
       grid-column-start: 1
       grid-column-end: 2
       color: black
       text-decoration: none
       font-family: "Helvetica", sans-serif
       font-weight: 600
-      font-size: 2.5vw
+      font-size: 2vw
       letter-spacing: .5px
       line-height: 1
       padding: 24px 0 0 24px
       transition: font-size .25s ease-in
       @media screen and (max-width: 768px)
-        font-size: 24px
+        font-size: 16px
+        padding: 16px 0 0 16px
       span::before
         content: '\A'
         white-space: pre
@@ -121,8 +149,6 @@ export default {
   .nav-fade-leave-active
     transition: opacity .25s ease-in-out
 
-  .nav-fade-leave
-    opacity: 1
 
 
 </style>
