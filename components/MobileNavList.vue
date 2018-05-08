@@ -66,7 +66,7 @@ export default {
     left: 100vw
     z-index: 999
     height: 100vh
-    width: 100vw
+    width: 100%
     background-color: #eaa087
     opacity: .9
     transition: all .25s ease-in-out

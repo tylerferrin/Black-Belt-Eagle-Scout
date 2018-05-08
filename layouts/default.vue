@@ -24,9 +24,9 @@ export default {
   body
     position: relative
     margin: 0
-    width: 100vw
+    width: 100%
   .default-layout
-    width: 100vw
+    width: 100%
     height: 100vh
     position: relative
     background-image: url('~/assets/bbes_index.jpg')
@@ -41,7 +41,7 @@ export default {
       top: 0
       left: 0
       height: 100vh
-      width: 100vw
+      width: 100%
       background-color: #eaa087
       opacity: .5
 

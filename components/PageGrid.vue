@@ -5,6 +5,7 @@
       <div class="page-grid__content-grid">
         <ShowGrid v-if="contentId === 'Show' "/>
         <AlbumGrid v-if="contentId === 'Album' " />
+        <BioGrid v-if="contentId === 'Bio' " />
       </div>
       <RouteTitle :routeTitle="routeTitle" />
     </div>
@@ -13,6 +14,7 @@
 <script>
 import ShowGrid from './ShowGrid'
 import AlbumGrid from './AlbumGrid'
+import BioGrid from './BioGrid'
 import RouteTitle from './RouteTitle'
 import scroller from 'vue-scrollto'
 
@@ -21,6 +23,7 @@ export default {
   components: {
     ShowGrid,
     AlbumGrid,
+    BioGrid,
     RouteTitle
   },
 
@@ -56,7 +59,7 @@ export default {
 </script>
 <style lang="sass">
   .page-grid
-    width: 100vw
+    width: 100%
     height: 100%
     padding-bottom: 200px
     &__empty-top

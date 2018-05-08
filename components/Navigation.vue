@@ -107,7 +107,7 @@ export default {
     top: 0px
     left: 0
     z-index: 999
-    width: 100vw
+    width: 100%
     height: 50px
     background-color: transparent
     &__wrapper
@@ -135,7 +135,7 @@ export default {
       transition: font-size .25s ease-in
       @media screen and (max-width: 768px)
         font-size: 16px
-        padding: 20px 0 0 20px
+        padding: 16px 0 0 16px
       span::before
         content: '\A'
         white-space: pre

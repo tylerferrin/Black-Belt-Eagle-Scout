@@ -28,17 +28,17 @@ export default {
     grid-column-end: 9
     padding: 24px 24px 0 0
     @media screen and (max-width: 768px)
-      padding: 20px 20px 0 0
+      padding: 16px 16px 0 0
     &__btn
       display: block
       position: relative
       height: 20px
-      width: 30px
+      width: 35px
       display: flex
       flex-direction: column
       justify-content: space-between
       background-color: transparent
-      border-radius: none
+      border-radius: 0
       outline: none
       border: none
       cursor: pointer
@@ -48,7 +48,7 @@ export default {
     &__row
       display: block
       height: 3px
-      width: 25px
+      width: 30px
       background-color: black
       &--one
       &--two
