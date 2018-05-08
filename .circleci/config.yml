@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/Black-Belt-Eagle-Scout
+    docker:
+      - image: circleci/node:8.11.1
+    steps:
+      - checkout
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache: # special step to restore the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Build Static Files
+          command: npm run generate
+      - run:
+          name: Deploy to Surge
+          command: npm run deploy
