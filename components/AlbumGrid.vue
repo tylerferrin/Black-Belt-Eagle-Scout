@@ -4,13 +4,14 @@
       v-for="album in albums"
       :key="album.orderToDisplay"
       class="album-grid__album-container"
+      :data-embed="album.embedLink"
     >
       <div class="album-grid__album-item">
         <div class="iframe-wrapper">
-          <iframe
+          <!-- <iframe
           :src="album.embedLink"
           seamless
-          />
+          /> -->
         </div>
       </div>
       <div class="album-grid__album-info">
@@ -71,6 +72,42 @@ export default {
     dateFormat(date) {
       return moment(date).format('MM.DD.YYYY')
     }
+  },
+  mounted () {
+
+    // get album row containers
+    let albumRowContainers = document.querySelectorAll('.album-grid__album-container')
+
+    // loop through each album container to create lazy loading
+    for (let row of albumRowContainers) {
+
+      // get album that matches the row's dataset.embed
+      let album = this.albums.find((album) => {
+        return album.embedLink === row.dataset.embed
+      })
+
+      // get iframe container from row
+      let rowIframeContainer = row.childNodes[0].childNodes[0]
+
+      // load img into dom before Iframe
+      let img = new Image()
+      img.onload = () => {
+        rowIframeContainer.appendChild(img)
+      }
+      img.src = album.albumImageLink
+
+      // create iframe and begin loading
+      let iframe = document.createElement('iframe')
+      // after 1 second of the dom being loaded - replace image with iframe. seems redundant but
+      // this way the scroll animation is smoooooooooth.
+      setTimeout(() => {
+        rowIframeContainer.removeChild(img)
+        rowIframeContainer.appendChild(iframe)
+      }, 1500)
+      iframe.src = album.embedLink
+    }
+
+
   }
 }
 </script>
@@ -102,7 +139,9 @@ export default {
       .iframe-wrapper
         height: 100%
         width: 100%
-        iframe
+        // background-color: #eaa087
+        iframe,
+        img
           height: 100%
           width: 100%
           border: 0

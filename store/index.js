@@ -9,7 +9,9 @@ export const state = () => ({
   scrollOnMount: true,
   shows: [],
   albums: [],
-  bio: {}
+  videos: [],
+  bio: {},
+  contact: {}
 })
 
 export const mutations = {
@@ -30,6 +32,9 @@ export const mutations = {
   },
   setBio (state, bio) {
     state.bio = bio
+  },
+  setContact (state, contact) {
+    state.contact = contact
   }
 }
 
@@ -45,7 +50,9 @@ export const actions = {
       let shows = _.orderBy(_.filter(filteredResponse, item => item.id === 'show'), 'date')
       let albums = _.filter(filteredResponse, item => item.id === 'album')
       let bio = _.filter(filteredResponse, item => item.id === 'bio')
+      let contact = _.filter(filteredResponse, item => item.id === 'contact')
 
+      commit('setContact', contact[0])
       commit('setBio', bio[0])
       commit('setAlbums', albums)
       commit('setShows', shows)

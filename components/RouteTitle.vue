@@ -39,6 +39,9 @@ export default {
         text-transform: uppercase
         margin: 5px 0
         text-align: center
+        @media screen and (max-width: 768px)
+          font-size: 16px
+
 
   @keyframes fade-in
     0%

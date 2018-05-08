@@ -1,11 +1,15 @@
 <template>
   <section id="pageGrid" class="page-grid">
     <div class="page-grid__empty-top"></div>
-    <div class="page-grid__content-container">
+    <div
+      class="page-grid__content-container"
+      v-bind:class="{ 'contact-background': contentId === 'Contact' }"
+    >
       <div class="page-grid__content-grid">
         <ShowGrid v-if="contentId === 'Show' "/>
         <AlbumGrid v-if="contentId === 'Album' " />
         <BioGrid v-if="contentId === 'Bio' " />
+        <ContactGrid v-if="contentId === 'Contact' " />
       </div>
       <RouteTitle :routeTitle="routeTitle" />
     </div>
@@ -15,6 +19,7 @@
 import ShowGrid from './ShowGrid'
 import AlbumGrid from './AlbumGrid'
 import BioGrid from './BioGrid'
+import ContactGrid from './ContactGrid'
 import RouteTitle from './RouteTitle'
 import scroller from 'vue-scrollto'
 
@@ -24,6 +29,7 @@ export default {
     ShowGrid,
     AlbumGrid,
     BioGrid,
+    ContactGrid,
     RouteTitle
   },
 
@@ -61,7 +67,6 @@ export default {
   .page-grid
     width: 100%
     height: 100%
-    padding-bottom: 200px
     &__empty-top
       position: relative
       height: 100vh
@@ -74,4 +79,22 @@ export default {
       h1
         grid-column-start: 2
 
+  .contact-background
+    position: absolute
+    height: 100%
+    background-image: url('~/assets/bbes_contact.jpg')
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: left
+    z-index: -2
+    &::after
+      content: ' '
+      position: absolute
+      top: 0
+      left: 0
+      height: 100%
+      width: 100%
+      background-color: #fff
+      opacity: .25
+      z-index: -1
 </style>

@@ -15,7 +15,9 @@
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/video">
+        <nuxt-link
+          v-if="this.videos.length > 0"
+          to="/video">
           Video
         </nuxt-link>
       </li>
@@ -54,7 +56,8 @@ export default {
     'toggleIsEntering'
   ],
   computed: mapState([
-    'isMobile'
+    'isMobile',
+    'videos'
   ])
 }
 
