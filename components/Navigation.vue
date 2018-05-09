@@ -12,16 +12,10 @@
         mode="out-in"
         appear
       >
-        <NavList
-          v-if="!isMobile"
-        />
-        <Burger
-          v-if="isMobile && !isMobileListShowing"
-        />
-        <MobileNavList
-          v-if="isMobileListShowing"
-        />
+        <NavList v-if="isMobile === false " />
+        <Burger v-if="isMobile && !isMobileListShowing" />
       </transition>
+      <MobileNavList v-if="isMobileListShowing" />
     </div>
   </section>
 </template>
