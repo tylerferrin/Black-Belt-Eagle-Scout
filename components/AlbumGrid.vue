@@ -115,13 +115,15 @@ export default {
   .album-grid
     grid-column-start: 2
     grid-column-end: 8
-    margin-top: 20%
+    padding-top: 20%
+    padding-bottom: 20px
     width: 100%
     display: grid
     grid-template-columns: 1fr
     @media screen and (max-width: 768px)
       grid-column-start: 3
       grid-column-end: 7
+      padding-top: 100px
     &__album-container
       display: grid
       grid-template-columns: 1fr 1fr

@@ -11,7 +11,7 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "deploy": "surge --project ./dist --domain hollandandrews.com"
+    "deploy": "surge --project ./dist --domain bbes-dev.surge.sh"
   },
   "dependencies": {
     "nuxt": "^1.0.0"

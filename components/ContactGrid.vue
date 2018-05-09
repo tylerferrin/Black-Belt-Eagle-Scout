@@ -63,6 +63,7 @@ export default {
       position: relative
       @media screen and (max-width: 768px)
         letter-spacing: 1px
+        color: black
       @media screen and (max-width: 400px)
         font-size: 12px
       border-bottom: 2px solid white

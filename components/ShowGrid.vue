@@ -1,7 +1,8 @@
 <template>
   <section class="show-grid">
     <div
-      v-for="(show, index) in this.showArray"
+      v-if="showArray.length > 0"
+      v-for="(show, index) in showArray"
       :key="index"
       class="show-grid__show-item">
       <div class="show-grid__show-info">
@@ -37,6 +38,12 @@
         </a >
       </div>
     </div>
+    <div
+      v-if="showArray.length < 1"
+      class="show-grid__no-show-item"
+    >
+      <p>Currently, there are no shows scheduled. Stay tuned....</p>
+    </div>
   </section>
 </template>
 <script>
@@ -45,7 +52,8 @@ import moment from 'moment'
 export default {
   data () {
     return {
-      showArray: this.$store.state.shows
+      // showArray: this.$store.state.shows
+      showArray: []
     }
   },
   methods: {
@@ -62,7 +70,8 @@ export default {
     left: 0
     grid-column-start: 2
     grid-column-end: 8
-    margin-top: 20%
+    margin-bottom: 100px
+    padding-top: 100px
     width: 100%
     display: grid
     grid-template-columns: 1fr 1fr 1fr 1fr
@@ -75,6 +84,27 @@ export default {
     @media screen and (max-width: 768px)
       grid-template-columns: 1fr
       grid-row-gap: 30px
+    &__no-show-item
+      position: relative
+      grid-column-start: 1
+      grid-column-end: 5
+      padding-top: 100px
+      @media screen and (max-width: 1080px)
+        grid-column-start: 1
+        grid-column-end: 3
+      @media screen and (max-width: 768px)
+        grid-column-start: 1
+        grid-column-end: 2
+      p
+        text-align: center
+        font-size: 1.5vw
+        font-family: "Helvetica", sans-serif
+        text-transform: uppercase
+        font-weight: 800
+        @media screen and (max-width: 1080px)
+          font-size: 16px
+        @media screen and (max-width: 768px)
+          font-size: 14px
     &__show-item
       position: relative
       display: flex

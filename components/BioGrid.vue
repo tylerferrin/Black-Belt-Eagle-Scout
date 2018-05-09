@@ -26,6 +26,7 @@ export default {
     grid-column-start: 2
     grid-column-end: 8
     margin-top: 20%
+    padding-bottom: 100px
     width: 100%
     position: relative
     display: grid
