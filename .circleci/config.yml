@@ -11,7 +11,7 @@ jobs:
 
       # special step to restore the dependency cache
       - restore_cache:
-        key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ checksum "package.json" }}
 
       - run:
           name: update-npm
