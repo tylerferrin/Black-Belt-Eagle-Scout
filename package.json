@@ -28,6 +28,7 @@
     "moment": "^2.22.1",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
+    "surge": "^0.20.1",
     "vue-scrollto": "^2.11.0"
   }
 }
