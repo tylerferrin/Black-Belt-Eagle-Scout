@@ -35,6 +35,9 @@ export const mutations = {
   },
   setContact (state, contact) {
     state.contact = contact
+  },
+  setVideos (state, videos) {
+    state.videos = videos
   }
 }
 
@@ -51,7 +54,9 @@ export const actions = {
       let albums = _.filter(filteredResponse, item => item.id === 'album')
       let bio = _.filter(filteredResponse, item => item.id === 'bio')
       let contact = _.filter(filteredResponse, item => item.id === 'contact')
+      let videos = _.filter(filteredResponse, item => item.id === 'video')
 
+      commit('setVideos', videos)
       commit('setContact', contact[0])
       commit('setBio', bio[0])
       commit('setAlbums', albums)

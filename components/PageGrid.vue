@@ -6,10 +6,11 @@
       v-bind:class="{ 'contact-background': contentId === 'Contact' }"
     >
       <div class="page-grid__content-grid">
-        <ShowGrid v-if="contentId === 'Show' "/>
-        <AlbumGrid v-if="contentId === 'Album' " />
-        <BioGrid v-if="contentId === 'Bio' " />
-        <ContactGrid v-if="contentId === 'Contact' " />
+        <ShowGrid v-if="contentId === 'Show'" />
+        <AlbumGrid v-if="contentId === 'Album'" />
+        <VideoGrid v-if="contentId === 'Video'" />
+        <BioGrid v-if="contentId === 'Bio'" />
+        <ContactGrid v-if="contentId === 'Contact'" />
       </div>
       <RouteTitle :routeTitle="routeTitle" />
     </div>
@@ -18,6 +19,7 @@
 <script>
 import ShowGrid from './ShowGrid'
 import AlbumGrid from './AlbumGrid'
+import VideoGrid from './VideoGrid'
 import BioGrid from './BioGrid'
 import ContactGrid from './ContactGrid'
 import RouteTitle from './RouteTitle'
@@ -28,6 +30,7 @@ export default {
   components: {
     ShowGrid,
     AlbumGrid,
+    VideoGrid,
     BioGrid,
     ContactGrid,
     RouteTitle
