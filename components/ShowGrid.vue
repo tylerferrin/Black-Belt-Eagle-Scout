@@ -10,7 +10,7 @@
         <p class="show-grid__show-venue">{{ show.venue }}</p>
         <p class="show-grid__show-location">{{ show.location }}</p>
         <div class="show-grid__info-container">
-          <p>This is where more info about the show is going to go. like 21+. It's a benefit for elephants and so on and so forth</p>
+          <p>{{show.description}}</p>
         </div>
         <div class="show-grid__other-performers-container">
           <p
@@ -52,8 +52,7 @@ import moment from 'moment'
 export default {
   data () {
     return {
-      // showArray: this.$store.state.shows
-      showArray: []
+      showArray: this.$store.state.shows
     }
   },
   methods: {
