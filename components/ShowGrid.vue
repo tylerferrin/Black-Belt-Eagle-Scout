@@ -69,8 +69,8 @@ export default {
     left: 0
     grid-column-start: 2
     grid-column-end: 8
-    margin-bottom: 100px
-    padding-top: 100px
+    padding-bottom: 20px
+    padding-top: 20%
     width: 100%
     display: grid
     grid-template-columns: 1fr 1fr 1fr 1fr
@@ -83,6 +83,7 @@ export default {
     @media screen and (max-width: 768px)
       grid-template-columns: 1fr
       grid-row-gap: 30px
+      padding-top: 100px
     &__no-show-item
       position: relative
       grid-column-start: 1
