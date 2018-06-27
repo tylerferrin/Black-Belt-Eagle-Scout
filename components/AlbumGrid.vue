@@ -18,7 +18,7 @@
         <p class="title">{{album.title}}</p>
         <br>
         <p class="release-date"><span>released on</span> {{dateFormat(album.releaseDate)}}</p>
-        <!-- <p class="label"><span>released by</span> {{album.label}}</p> -->
+        <p class="label"><span>released by</span> {{album.label}}</p>
         <p class="available">Available on DIGITAL & ANALOG formats</p>
         <div class="purchase-links">
           <p>

@@ -4,20 +4,40 @@
       <a>General</a>
       <a
         class="link-text"
-        :href="`mailto:${contact.generalContact}`" target="_blank">{{contact.generalContact}}</a>
+        :href="`mailto:${contact.generalContact}`" target="_blank"
+      >
+        {{contact.generalContact}}
+      </a>
 
-        <a>Booking</a>
-        <a
+      <a>Booking</a>
+      <a
         class="link-text"
-        :href="`mailto:${contact.bookingContact}`" target="_blank">{{contact.bookingContact}}</a>
+        :href="`mailto:${contact.bookingContact}`" target="_blank"
+      >
+        {{contact.bookingContact}}
+      </a>
 
-        <a
-          class="social-text"
-          :href="`${contact.instagramURL}`" target="_blank">Instagram</a>
+      <a>Label</a>
+      <a
+        class="link-text"
+        :href="`mailto:${contact.labelContact}`" target="_blank"
+      >
+        {{contact.labelContact}}
+      </a>
 
-        <a
-          class="social-text"
-          :href="`${contact.facebookURL}`" target="_blank">Facebook</a>
+      <a>Publicist</a>
+      <a
+        class="link-text"
+        :href="`mailto:${contact.publicityContact}`" target="_blank">{{contact.publicityContact}}
+      </a>
+      <a
+        class="social-text"
+        :href="`${contact.instagramURL}`" target="_blank">Instagram
+      </a>
+      <a
+        class="social-text"
+        :href="`${contact.facebookURL}`" target="_blank">Facebook
+      </a>
     </div>
   </section>
 </template>
@@ -66,12 +86,12 @@ export default {
         color: black
       @media screen and (max-width: 400px)
         font-size: 12px
-      border-bottom: 2px solid white
+
 
     a.link-text
       display: block
-      font-weight: 800
-      letter-spacing: 1px
+      font-weight: 400
+      letter-spacing: 2px
       margin: 15px 0 25px 0
       text-transform: lowercase
       border-bottom: 0
@@ -82,7 +102,7 @@ export default {
         left: 0
         width: 0
         height: 2px
-        background-color: #eaa087
+        background-color: #000
         transition: all .25s ease-in-out
         z-index: -1
       &:hover::after
@@ -99,7 +119,7 @@ export default {
         left: 0
         width: 0
         height: 2px
-        background-color: #eaa087
+        background-color: #000
         transition: all .25s ease-in-out
         z-index: -1
       &:hover::after

@@ -98,7 +98,7 @@ export default {
       height: 100%
       width: 100%
       background-color: #fff
-      opacity: .25
+      opacity: .15
       z-index: -1
       @media screen and (max-width: 768px)
         opacity: .5
