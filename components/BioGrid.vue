@@ -6,7 +6,7 @@
     </div>
     <div class="bio-grid__bio-photo">
       <img
-        src="~/assets/bbes_bio_photo.jpg"
+        src="~/assets/WR_BBES_BIO.jpg"
         alt="Katherine Paul, AKA Black Belt Eagle Scout">
     </div>
   </section>
@@ -36,14 +36,16 @@ export default {
       grid-row-gap: 100px
 
     &__bio-photo
-      height: 40vw
-      width: 40vw
+      width: 42vw
+      position: relative
       @media screen and (max-width: 768px)
         grid-row-start: 2
         justify-self: center
         height: 100%
         width: 100%
       img
+        position: absolute
+        top: 3.5vw
         width: 100%
         height: auto
 
@@ -75,8 +77,8 @@ export default {
           background-color: #eaa087
       .text
         position: absolute
-        top: 10vw
-        left: 5vw
+        top: 5vw
+        left: 2.5vw
         width: 50%
         padding-top: 40px
         z-index: 2
