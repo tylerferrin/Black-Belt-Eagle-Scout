@@ -1,4 +1,5 @@
 import { createClient } from '~/plugins/contentful.js'
+import moment from 'moment'
 import _ from 'lodash'
 
 const client = createClient()
@@ -22,7 +23,9 @@ export const mutations = {
     state.page = page
   },
   setShows (state, shows) {
+
     state.shows = shows
+
   },
   toggleScrollOnMount (state, scroll) {
     state.scrollOnMount = scroll
@@ -41,16 +44,20 @@ export const mutations = {
   }
 }
 
+const filterOutOldShowsNightly = show => moment(show.date).isAfter(moment()) ? show : false
+
 export const actions = {
   async nuxtServerInit ({commit}) {
 
-      let response = await client.getEntries()
-        .catch(e => console.log(e))
+      let response = await client.getEntries().catch(e => console.log(e))
 
-      // once response has come in....
       let filteredResponse = _.map(response.items, item => Object.assign({}, item.fields, item.sys.contentType.sys))
 
       let shows = _.orderBy(_.filter(filteredResponse, item => item.id === 'show'), 'date')
+      shows = _.filter(shows, show => moment(show.date).isAfter(moment()) ? show : false)
+
+      console.log(shows)
+
       let albums = _.filter(filteredResponse, item => item.id === 'album')
       let bio = _.filter(filteredResponse, item => item.id === 'bio')
       let contact = _.filter(filteredResponse, item => item.id === 'contact')

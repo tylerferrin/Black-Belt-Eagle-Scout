@@ -53,7 +53,7 @@ export default {
         easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
         offset: 0,
         onDone: () => {
-          console.log('done')
+          // console.log('done')
         }
       })
     }
