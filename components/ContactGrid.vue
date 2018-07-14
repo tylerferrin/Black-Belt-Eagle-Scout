@@ -9,7 +9,7 @@
         {{contact.generalContact}}
       </a>
 
-      <a>Booking</a>
+      <a>Booking / <span>Alisa Preisler </span></a>
       <a
         class="link-text"
         :href="`mailto:${contact.bookingContact}`" target="_blank"
@@ -20,12 +20,12 @@
       <a>Label</a>
       <a
         class="link-text"
-        :href="`mailto:${contact.labelContact}`" target="_blank"
+        :href="`${contact.labelContact}`" target="_blank"
       >
-        {{contact.labelContact}}
+        Saddle Creek
       </a>
 
-      <a>Publicist</a>
+      <a>Publicity / <span>Jessica Linker</span></a>
       <a
         class="link-text"
         :href="`mailto:${contact.publicityContact}`" target="_blank">{{contact.publicityContact}}
@@ -60,10 +60,10 @@ export default {
     width: 100%
     display: grid
     grid-column-gap: 50px
-    grid-row-gap: 50px
+    grid-row-gap: 25px
     grid-template-columns: 1fr 1fr 1fr 1fr
     font-family: "Helvetica"
-    font-size: 1vw
+    font-size: .9vw
     text-align: right
     @media screen and (max-width: 1080px)
       font-size: 14px
@@ -73,7 +73,7 @@ export default {
       grid-column-end: 7
       grid-template-columns: 1fr
     a
-      display: inline-block
+      display: block
       padding-bottom: 2.5px
       color: white
       text-transform: uppercase
@@ -86,6 +86,8 @@ export default {
         color: black
       @media screen and (max-width: 400px)
         font-size: 12px
+      span
+        font-weight: 400
 
 
     a.link-text

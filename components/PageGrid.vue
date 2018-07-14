@@ -101,5 +101,5 @@ export default {
       opacity: .15
       z-index: -1
       @media screen and (max-width: 768px)
-        opacity: .5
+        opacity: .35
 </style>
