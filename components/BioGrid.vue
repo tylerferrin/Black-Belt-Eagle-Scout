@@ -33,7 +33,7 @@ export default {
     grid-template-columns: 1fr 1fr
     @media screen and (max-width: 768px)
       grid-template-columns: 1fr
-      grid-row-gap: 100px
+      grid-row-gap: 50px
 
     &__bio-photo
       width: 42vw
@@ -48,6 +48,7 @@ export default {
         top: 3.5vw
         width: 100%
         height: auto
+        padding-bottom: 50px
 
     &__bio-text
       font-family: "Helvetica"
@@ -109,7 +110,7 @@ export default {
           left: -5%
           z-index: -1
           width: 110%
-          height: 110%
+          height: 104%
           border: 2px solid black
           background-color: lighten(grey, 50%)
           opacity: .9
