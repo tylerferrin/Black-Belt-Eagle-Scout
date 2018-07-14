@@ -26,16 +26,16 @@ jobs:
           name: Deploy to Surge
           command: npm run deploy
 
-workflows:
-  version: 2
-
-  nightly:
-    triggers:
-      - schedule:
-        cron: "0 0 * * *"
-        filters:
-          branches:
-            only:
-              - master
-    jobs:
-      - build
+# workflows:
+#   version: 2
+#
+#   nightly:
+#     triggers:
+#       - schedule:
+#         cron: "0 0 * * *"
+#         filters:
+#           branches:
+#             only:
+#               - master
+#     jobs:
+#       - build
