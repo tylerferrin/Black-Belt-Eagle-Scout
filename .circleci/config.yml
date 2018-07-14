@@ -24,6 +24,7 @@ jobs:
       - run:
           name: Deploy to Surge
           command: npm run deploy
+
 workflows:
   version: 2
   commit:
