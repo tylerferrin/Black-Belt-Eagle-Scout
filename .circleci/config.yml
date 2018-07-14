@@ -1,16 +1,5 @@
-workflows:
 version: 2
-  commit:
-    jobs:
-      - deploy
-  nightly:
-    triggers:
-      - schedule:
-        cron: "0 0 * * *"
-        filters:
-          branches:
-            only:
-              - master
+jobs:
   build:
     working_directory: ~/Black-Belt-Eagle-Scout
     docker:
@@ -35,3 +24,18 @@ version: 2
       - run:
           name: Deploy to Surge
           command: npm run deploy
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - build
+  nightly:
+    triggers:
+      - schedule:
+        cron: "0 0 * * *"
+        filters:
+          branches:
+            only:
+              - master
+    jobs:
+      - build
