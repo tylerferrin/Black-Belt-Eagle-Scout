@@ -1,4 +1,5 @@
 version: 2
+
 jobs:
   build:
     working_directory: ~/Black-Belt-Eagle-Scout
@@ -27,9 +28,7 @@ jobs:
 
 workflows:
   version: 2
-  commit:
-    jobs:
-      - build
+
   nightly:
     triggers:
       - schedule:
