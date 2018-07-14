@@ -44,29 +44,24 @@ export const mutations = {
   }
 }
 
-const filterOutOldShowsNightly = show => moment(show.date).isAfter(moment()) ? show : false
-
 export const actions = {
   async nuxtServerInit ({commit}) {
+    let response = await client.getEntries().catch(e => console.log(e))
 
-      let response = await client.getEntries().catch(e => console.log(e))
+    let filteredResponse = _.map(response.items, item => Object.assign({}, item.fields, item.sys.contentType.sys))
 
-      let filteredResponse = _.map(response.items, item => Object.assign({}, item.fields, item.sys.contentType.sys))
+    let shows = _.orderBy(_.filter(filteredResponse, item => item.id === 'show'), 'date')
+    shows = _.filter(shows, show => moment(show.date).isAfter(moment()) ? show : false)
 
-      let shows = _.orderBy(_.filter(filteredResponse, item => item.id === 'show'), 'date')
-      shows = _.filter(shows, show => moment(show.date).isAfter(moment()) ? show : false)
+    let albums = _.filter(filteredResponse, item => item.id === 'album')
+    let bio = _.filter(filteredResponse, item => item.id === 'bio')
+    let contact = _.filter(filteredResponse, item => item.id === 'contact')
+    let videos = _.filter(filteredResponse, item => item.id === 'video')
 
-      console.log(shows)
-
-      let albums = _.filter(filteredResponse, item => item.id === 'album')
-      let bio = _.filter(filteredResponse, item => item.id === 'bio')
-      let contact = _.filter(filteredResponse, item => item.id === 'contact')
-      let videos = _.filter(filteredResponse, item => item.id === 'video')
-
-      commit('setVideos', videos)
-      commit('setContact', contact[0])
-      commit('setBio', bio[0])
-      commit('setAlbums', albums)
-      commit('setShows', shows)
+    commit('setVideos', videos)
+    commit('setContact', contact[0])
+    commit('setBio', bio[0])
+    commit('setAlbums', albums)
+    commit('setShows', shows)
   }
 }
