@@ -45,14 +45,6 @@
               VINYL
             </a>
           </p>
-          <p>
-            <a
-              :href="album.cassetteLink"
-              target="_blank"
-            >
-              CASSETTE
-            </a>
-          </p>
         </div>
       </div>
     </div>
