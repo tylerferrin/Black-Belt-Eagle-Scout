@@ -17,12 +17,12 @@
         {{contact.bookingContact}}
       </a>
 
-      <a>Label</a>
+      <a>Label / <span>Saddle Creek</span></a>
       <a
         class="link-text"
         :href="`${contact.labelContact}`" target="_blank"
       >
-        Saddle Creek
+        {{contact.labelContact}}
       </a>
 
       <a>Publicity / <span>Jessica Linker</span></a>

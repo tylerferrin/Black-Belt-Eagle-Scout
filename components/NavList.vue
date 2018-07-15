@@ -33,7 +33,7 @@
       </li>
       <li>
         <a
-          href="https://blackbelteaglescout.bandcamp.com/"
+          href="https://saddle-creek.com/products/mother-of-my-children"
           target="_blank"
         >
           Store
