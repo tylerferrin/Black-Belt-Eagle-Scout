@@ -1,12 +1,7 @@
 <template>
   <div class="default-layout">
-    <div class="">
-      <Navigation />
-    </div>
-    <div class="">
-      <nuxt/>
-
-    </div>
+    <Navigation />
+    <nuxt/>
   </div>
 </template>
 <script>
@@ -26,23 +21,22 @@ export default {
     margin: 0
     width: 100%
   .default-layout
-    // width: 100vw
     height: 100vh
     position: relative
-    background-image: url('~/assets/bbes_index_jason_quigley.jpg')
+    background-image: url('~/assets/bbes_tropical.jpg')
     background-size: cover
     background-repeat: no-repeat
     background-position: top
     transition: all .1s ease-in
 
     &::after
-      // content: ' '
-      // position: absolute
-      // top: 0
-      // left: 0
-      // height: 100vh
-      // width: 100%
-      // background-color: #eaa087
-      // opacity: .5
+      content: ' '
+      position: absolute
+      top: 0
+      left: 0
+      height: 100vh
+      width: 100%
+      background-color: #fff
+      opacity: .5
 
 </style>
